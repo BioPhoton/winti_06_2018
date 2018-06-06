@@ -1,0 +1,12 @@
+<h1>Edit Person</h1>
+
+<form [formGroup]="pF" (submit)="submit()" >
+  <input type="text" [formControlName]="'name'" /><br/>
+  <p class="text-danger"
+    *ngIf="pF.get('name').hasError('minlength') && pF.get('name').touched">
+    The required length is <b>{{pF.get('name').getError('minlength').requiredLength}}</b> but the actual length is <b>{{pF.get('name').getError('minlength').actualLength}}</b>.
+  </p>
+  <input type="text" formControlName="birthDate" /><br/>
+  <input type="text" formControlName="gender" />
+  <button type="submit">submit</button>
+</form>
